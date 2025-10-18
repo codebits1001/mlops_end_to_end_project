@@ -3,7 +3,7 @@
 from setuptools import find_packages, setup
 from typing import List
 
-# lets the create the function for this 
+# lets create the function for this 
 
 e_hyphen_dot = '-e .'
 
