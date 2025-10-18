@@ -1,35 +1,37 @@
+# Importing the necessary classes and functions from the setuptools
+
 from setuptools import find_packages, setup
-import typing as List
+from typing import List
 
-#since we have `-e . in the requirements.txt which was to trigerred setup.py but
-# we dont want it to be used in the requirements while using the list for downlaoding the 
-# library so we will use some condition before for this`
+# lets the create the function for this 
 
-Hypen_e_dot = '-e .'
+e_hyphen_dot = '-e .'
 
-def get_requirements(file_path:str) ->List[str]:
-    '''
-        this function will returns list, we will strings as library name 
-    
-    '''
+def get_requirements(file_path: str) -> List[str]:
+
+    # create the variables to save the strings 
+
     requirements = []
-    with open(file_path) as file_obj:
-        requirements = file_obj.readlines()
+
+    # open the file which has been passed
+    with open(file_path) as f:
+        requirements = f.readlines()
         requirements = [req.replace("\n", "") for req in requirements]
 
-        if Hypen_e_dot in requirements:
-              requirements.remove(Hypen_e_dot)
+        # if e hypen is detected remove it 
+        if e_hyphen_dot in requirements:
+            requirements.remove(e_hyphen_dot)
     return requirements
 
 
+
+
 setup(
-    name = 'mlproject',
+    name  = 'mlops_project',
     version = '0.0.1',
     author = 'Braino_G',
-    author_email = 'codbits1001@icloud.com',
+    author_email = 'codebits1001@icloud.com',
     packages = find_packages(),
-    # install_requires = ['pandas, numpy, seaborn'], # since we can have many packages instead of manually passing as the list, we created the helper functions for this
     install_requires = get_requirements('requirements.txt')
 
 )
-
