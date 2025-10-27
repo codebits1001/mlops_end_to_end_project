@@ -1,4 +1,13 @@
 pandas
 numpy 
-seaborn 
--e .
+seaborn
+matplotlib
+scikit-learn
+xgboost
+catboost
+
+
+#-e . # try to comment out this line when u try installing any packgaes through below commands
+
+
+# pip install -r requirements.txt
